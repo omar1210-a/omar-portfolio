@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Omar Ahmad — Data Visualization & Spatial Analytics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        :root {
+            --bg: #020617;
+            --bg-elevated: #020617;
+            --card: #020617;
+            --card-border: #1f2937;
+            --accent: #38bdf8;
+            --accent-soft: rgba(56, 189, 248, 0.15);
+            --text-main: #e5e7eb;
+            --text-muted: #9ca3af;
+            --text-strong: #f9fafb;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                sans-serif;
+            background: radial-gradient(circle at top, #1e293b 0, #020617 45%);
+            color: var(--text-main);
+        }
+
+        header {
+            padding: 40px 20px 30px;
+            text-align: center;
+        }
+
+        .header-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            color: var(--text-strong);
+        }
+
+        .subtitle {
+            margin-top: 10px;
+            font-size: 0.98rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px 40px;
+        }
+
+        .section {
+            margin-top: 30px;
+        }
+
+        .section-header {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text-strong);
+        }
+
+        .section-tagline {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 14px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.18s ease, box-shadow 0.18s ease,
+                border-color 0.18s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+            box-shadow: 0 22px 60px rgba(15, 23, 42, 0.75);
+        }
+
+        .card-body {
+            padding: 18px 18px 16px;
+        }
+
+        .card-title {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-strong);
+        }
+
+        .card-text {
+            margin: 0 0 12px;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .meta {
+            font-size: 0.78rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 999px;
+            padding: 4px 10px;
+            display: inline-block;
+        }
+
+        .iframe-wrapper {
+            background: #020617;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .iframe-wrapper iframe {
+            width: 100%;
+            border: none;
+            display: block;
+        }
+
+        .iframe-map {
+            height: 420px;
+        }
+
+        .iframe-notebook {
+            height: 520px;
+        }
+
+        .card-links {
+            margin-top: 8px;
+        }
+
+        .card-link {
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .card-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding-top: 28px;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>Omar Ahmad</h1>
+            <p class="subtitle">
+                I build interactive, data-driven visualizations that blend web
+                technologies, spatial analysis, and statistical reasoning. Drawing on
+                experience with web-based GIS, housing and urban data, and tools like
+                Python, Jupyter, QGIS, Tableau, and Mapbox to turn complex datasets
+                into clear, visual stories.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- INTERACTIVE MAPS SECTION -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Interactive Mapping & Spatial Visualizations</h2>
+                <p class="section-tagline">
+                    Browser-based maps built with web GIS tools, geospatial data, and interactive styling.
+                </p>
+            </div>
+
+            <div class="grid">
+                <!-- WA COVID MAP -->
+                <article class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">COVID-19 Metrics by County — Washington State</h3>
+                        <p class="card-text">
+                            County-level choropleth displaying cumulative COVID-19 case, death,
+                            and vaccination rates per 10,000 people across Washington State
+                            using GeoJSON and Mapbox GL JS.
+                        </p>
+                        <span class="meta">Mapbox GL · Choropleth · Health Data</span>
+                        <div class="card-links">
+                            <a
+                                class="card-link"
+                                href="https://omar1210-a.github.io/WebMapping_Lab04/index.html"
+                                target="_blank"
+                            >
+                                Open in full screen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-wrapper">
+                        <iframe
+                            class="iframe-map"
+                            src="https://omar1210-a.github.io/WebMapping_Lab04/index.html"
+                            title="COVID-19 Metrics by County — Washington State"
+                        ></iframe>
+                    </div>
+                </article>
+
+                <!-- US POP DENSITY MAP -->
+                <article class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Population Density — United States</h3>
+                        <p class="card-text">
+                            Interactive map of U.S. states visualizing population density with
+                            a stepped color scheme, hover interaction, and a custom legend to
+                            support quick comparison across regions.
+                        </p>
+                        <span class="meta">Mapbox GL · Demographics · Choropleth</span>
+                        <div class="card-links">
+                            <a
+                                class="card-link"
+                                href="https://omar1210-a.github.io/WebMapping_Lab04/pop_density.html"
+                                target="_blank"
+                            >
+                                Open in full screen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-wrapper">
+                        <iframe
+                            class="iframe-map"
+                            src="https://omar1210-a.github.io/WebMapping_Lab04/pop_density.html"
+                            title="Population Density — United States"
+                        ></iframe>
+                    </div>
+                </article>
+
+                <!-- EARTHQUAKE MAP -->
+                <article class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Recent Earthquake Activity</h3>
+                        <p class="card-text">
+                            Web map visualizing earthquake events using symbolized point data,
+                            enabling users to explore spatial patterns and magnitudes across a
+                            region.
+                        </p>
+                        <span class="meta">Geospatial Data · Event Mapping</span>
+                        <div class="card-links">
+                            <a
+                                class="card-link"
+                                href="https://omar1210-a.github.io/Earthquake_Lab03/earthquake.html"
+                                target="_blank"
+                            >
+                                Open in full screen
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-wrapper">
+                        <iframe
+                            class="iframe-map"
+                            src="https://omar1210-a.github.io/Earthquake_Lab03/earthquake.html"
+                            title="Recent Earthquake Activity"
+                        ></iframe>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- NOTEBOOKS / ANALYTICAL WORK SECTION -->
+        <section class="section">
+            <div class="section-header">
+                <h2 class="section-title">Analytical Notebooks & Visual Outputs</h2>
+                <p class="section-tagline">
+                    Jupyter-based analyses, highlighting data exploration and visualization.
+                </p>
+            </div>
+
+            <div class="grid">
+                <!-- Notebook 1 -->
+                <article class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Exploratory Data Analysis — Part 1</h3>
+                        <p class="card-text">
+                            Jupyter Notebook showcasing data exploration,
+                            transformation, and foundational visualizations.
+                        </p>
+                        <span class="meta">Python · Jupyter · Visualization</span>
+                        <div class="card-links">
+                            <a
+                                class="card-link"
+                                href="Lab_Part_1.html"
+                                target="_blank"
+                            >
+                                Open as full page
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-wrapper">
+                        <iframe
+                            class="iframe-notebook"
+                            src="Lab_Part_1.html"
+                            title="Exploratory Data Analysis — Part 1"
+                        ></iframe>
+                    </div>
+                </article>
+
+                <!-- Notebook 2 -->
+                <article class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Exploratory Data Analysis — Part 2</h3>
+                        <p class="card-text">
+                            Follow-up notebook focused on refining visuals and summarizing
+                            patterns in the underlying dataset.
+                        </p>
+                        <span class="meta">Python · Jupyter · Data Wrangling</span>
+                        <div class="card-links">
+                            <a
+                                class="card-link"
+                                href="Lab_Part_2.html"
+                                target="_blank"
+                            >
+                                Open as full page
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-wrapper">
+                        <iframe
+                            class="iframe-notebook"
+                            src="Lab_Part_2.html"
+                            title="Exploratory Data Analysis — Part 2"
+                        ></iframe>
+                    </div>
+                </article>
+
+                <!-- Notebook 3 -->
+                <article class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Seismic Data Preparation</h3>
+                        <p class="card-text">
+                            Notebook export documenting the steps used to prepare, clean, and
+                            structure earthquake data for visualization and mapping.
+                        </p>
+                        <span class="meta">Data Processing · Seismic Data</span>
+                        <div class="card-links">
+                            <a
+                                class="card-link"
+                                href="Lab03.html"
+                                target="_blank"
+                            >
+                                Open as full page
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-wrapper">
+                        <iframe
+                            class="iframe-notebook"
+                            src="Lab03.html"
+                            title="Seismic Data Preparation"
+                        ></iframe>
+                    </div>
+                </article>
+
+                <!-- Notebook 4 -->
+                <article class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Seismic Visualization Workflow</h3>
+                        <p class="card-text">
+                            An HTML notebook highlighting how processed earthquake data is
+                            translated into visual outputs and map-ready layers.
+                        </p>
+                        <span class="meta">Visualization Pipeline · Earthquake Data</span>
+                        <div class="card-links">
+                            <a
+                                class="card-link"
+                                href="Lab03_Pt2.html"
+                                target="_blank"
+                            >
+                                Open as full page
+                            </a>
+                        </div>
+                    </div>
+                    <div class="iframe-wrapper">
+                        <iframe
+                            class="iframe-notebook"
+                            src="Lab03_Pt2.html"
+                            title="Seismic Visualization Workflow"
+                        ></iframe>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
