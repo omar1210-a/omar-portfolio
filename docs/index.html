@@ -7,13 +7,14 @@
     <style>
         :root {
             --bg: #020617;
-            --bg-elevated: #020617;
-            --card: #020617;
-            --card-border: #1f2937;
+            --bg-elevated: #0f172a;
+            --card: #1e293b;
+            --card-border: #334155;
             --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
             --accent-soft: rgba(56, 189, 248, 0.15);
             --text-main: #e5e7eb;
-            --text-muted: #9ca3af;
+            --text-muted: #94a3b8;
             --text-strong: #f9fafb;
         }
 
@@ -27,10 +28,11 @@
                 sans-serif;
             background: radial-gradient(circle at top, #1e293b 0, #020617 45%);
             color: var(--text-main);
+            min-height: 100vh;
         }
 
         header {
-            padding: 40px 20px 30px;
+            padding: 60px 20px 40px;
             text-align: center;
         }
 
@@ -41,14 +43,16 @@
 
         h1 {
             margin: 0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--text-strong);
+            font-weight: 700;
         }
 
         .subtitle {
-            margin-top: 10px;
-            font-size: 0.98rem;
+            margin-top: 16px;
+            font-size: 1.05rem;
             color: var(--text-muted);
+            line-height: 1.6;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -56,128 +60,181 @@
 
         main {
             max-width: 1200px;
-            margin: 0 auto 60px;
+            margin: 0 auto 80px;
             padding: 0 20px 40px;
         }
 
         .section {
-            margin-top: 30px;
+            margin-top: 60px;
         }
 
         .section-header {
-            margin-bottom: 18px;
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 10px;
+            margin-bottom: 32px;
+            text-align: center;
         }
 
         .section-title {
-            font-size: 1.3rem;
+            font-size: 1.8rem;
             font-weight: 600;
             color: var(--text-strong);
+            margin: 0 0 8px;
         }
 
         .section-tagline {
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--text-muted);
+            margin: 0;
         }
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 28px;
         }
 
         .card {
             background: var(--card);
-            border-radius: 14px;
+            border-radius: 16px;
             border: 1px solid var(--card-border);
-            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.18s ease, box-shadow 0.18s ease,
-                border-color 0.18s ease;
+            transition: transform 0.2s ease, box-shadow 0.2s ease,
+                border-color 0.2s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         .card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
             border-color: var(--accent);
-            box-shadow: 0 22px 60px rgba(15, 23, 42, 0.75);
+            box-shadow: 0 12px 32px rgba(56, 189, 248, 0.2);
         }
 
-        .card-body {
-            padding: 18px 18px 16px;
-        }
-
-        .card-title {
-            margin: 0 0 6px;
-            font-size: 1.05rem;
-            font-weight: 600;
-            color: var(--text-strong);
-        }
-
-        .card-text {
-            margin: 0 0 12px;
-            font-size: 0.92rem;
-            color: var(--text-muted);
-            line-height: 1.5;
-        }
-
-        .meta {
-            font-size: 0.78rem;
-            color: var(--accent);
-            background: var(--accent-soft);
-            border-radius: 999px;
-            padding: 4px 10px;
-            display: inline-block;
-        }
-
-        .iframe-wrapper {
-            background: #020617;
-            border-top: 1px solid var(--card-border);
-        }
-
-        .iframe-wrapper iframe {
+        .card-thumbnail {
             width: 100%;
-            border: none;
+            height: 240px;
+            background: var(--bg-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--card-border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Placeholder styling - remove this when you add real images */
+        .card-thumbnail::before {
+            content: '📊';
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .card-thumbnail::after {
+            content: 'Add screenshot here';
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background: rgba(56, 189, 248, 0.2);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* When you add images, use this style */
+        .card-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
 
-        .iframe-map {
-            height: 420px;
+        .card-body {
+            padding: 24px;
         }
 
-        .iframe-notebook {
-            height: 520px;
+        .card-title {
+            margin: 0 0 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-strong);
+            line-height: 1.3;
         }
 
-        .card-links {
-            margin-top: 8px;
+        .card-text {
+            margin: 0 0 16px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .meta {
+            font-size: 0.8rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            border-radius: 999px;
+            padding: 5px 12px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .card-link-wrapper {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--card-border);
         }
 
         .card-link {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--accent);
-            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .card-link:hover {
-            text-decoration: underline;
+        .card:hover .card-link {
+            color: var(--accent-hover);
+        }
+
+        .card-link::after {
+            content: '→';
+            font-size: 1.1rem;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover .card-link::after {
+            transform: translateX(4px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         @media (max-width: 600px) {
             header {
-                padding-top: 28px;
+                padding-top: 40px;
             }
 
             h1 {
-                font-size: 1.7rem;
+                font-size: 2rem;
             }
 
             .subtitle {
-                font-size: 0.9rem;
+                font-size: 0.95rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -202,13 +259,21 @@
             <div class="section-header">
                 <h2 class="section-title">Interactive Mapping & Spatial Visualizations</h2>
                 <p class="section-tagline">
-                    Browser-based maps built with web GIS tools, geospatial data, and interactive styling.
+                    Browser-based maps built with web GIS tools, geospatial data, and interactive styling
                 </p>
             </div>
 
             <div class="grid">
                 <!-- WA COVID MAP -->
-                <article class="card">
+                <a class="card" href="https://omar1210-a.github.io/WebMapping_Lab04/index.html" target="_blank">
+                    <div class="card-thumbnail">
+                        <!-- TO ADD YOUR SCREENSHOT: 
+                             1. Save your screenshot as 'covid-map.png' (or .jpg)
+                             2. Uncomment the line below and update the src
+                             3. Delete or comment out the ::before and ::after CSS above
+                        -->
+                        <!-- <img src="covid-map.png" alt="COVID-19 Map Screenshot"> -->
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">COVID-19 Metrics by County — Washington State</h3>
                         <p class="card-text">
@@ -217,27 +282,17 @@
                             using GeoJSON and Mapbox GL JS.
                         </p>
                         <span class="meta">Mapbox GL · Choropleth · Health Data</span>
-                        <div class="card-links">
-                            <a
-                                class="card-link"
-                                href="https://omar1210-a.github.io/WebMapping_Lab04/index.html"
-                                target="_blank"
-                            >
-                                Open in full screen
-                            </a>
+                        <div class="card-link-wrapper">
+                            <span class="card-link">View Project</span>
                         </div>
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe
-                            class="iframe-map"
-                            src="https://omar1210-a.github.io/WebMapping_Lab04/index.html"
-                            title="COVID-19 Metrics by County — Washington State"
-                        ></iframe>
-                    </div>
-                </article>
+                </a>
 
                 <!-- US POP DENSITY MAP -->
-                <article class="card">
+                <a class="card" href="https://omar1210-a.github.io/WebMapping_Lab04/pop_density.html" target="_blank">
+                    <div class="card-thumbnail">
+                        <!-- <img src="pop-density-map.png" alt="Population Density Map Screenshot"> -->
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">Population Density — United States</h3>
                         <p class="card-text">
@@ -246,122 +301,68 @@
                             support quick comparison across regions.
                         </p>
                         <span class="meta">Mapbox GL · Demographics · Choropleth</span>
-                        <div class="card-links">
-                            <a
-                                class="card-link"
-                                href="https://omar1210-a.github.io/WebMapping_Lab04/pop_density.html"
-                                target="_blank"
-                            >
-                                Open in full screen
-                            </a>
+                        <div class="card-link-wrapper">
+                            <span class="card-link">View Project</span>
                         </div>
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe
-                            class="iframe-map"
-                            src="https://omar1210-a.github.io/WebMapping_Lab04/pop_density.html"
-                            title="Population Density — United States"
-                        ></iframe>
-                    </div>
-                </article>
+                </a>
 
                 <!-- EARTHQUAKE MAP -->
-                <article class="card">
+                <a class="card" href="https://omar1210-a.github.io/Earthquake_Lab03/earthquake.html" target="_blank">
+                    <div class="card-thumbnail">
+                        <!-- <img src="earthquake-map.png" alt="Earthquake Map Screenshot"> -->
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">Recent Earthquake Activity</h3>
                         <p class="card-text">
-                            Web map visualizing earthquake events using symbolized point data,
+                            Web map visualizing Japan earthquake events using symbolized point data,
                             enabling users to explore spatial patterns and magnitudes across a
                             region.
                         </p>
                         <span class="meta">Geospatial Data · Event Mapping</span>
-                        <div class="card-links">
-                            <a
-                                class="card-link"
-                                href="https://omar1210-a.github.io/Earthquake_Lab03/earthquake.html"
-                                target="_blank"
-                            >
-                                Open in full screen
-                            </a>
+                        <div class="card-link-wrapper">
+                            <span class="card-link">View Project</span>
                         </div>
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe class="iframe-map"
-                                src="earthquake_preview.html">
-                        </iframe>
-                    </div>
-                </article>
+                </a>
             </div>
         </section>
 
         <!-- NOTEBOOKS / ANALYTICAL WORK SECTION -->
         <section class="section">
             <div class="section-header">
-                <h2 class="section-title">Analytical Notebooks & Visual Outputs</h2>
+                <h2 class="section-title">Analytical Notebooks & Dashboards</h2>
                 <p class="section-tagline">
-                    Jupyter-based analyses, highlighting data exploration and visualization.
+                    Jupyter-based analyses showcasing data exploration, visualization, and interactive tools
                 </p>
             </div>
 
             <div class="grid">
-                <!-- Notebook 1 -->
-                <article class="card">
+                <!-- CRIME DASHBOARD -->
+                <a class="card" href="Lab 4.html" target="_blank">
+                    <div class="card-thumbnail">
+                        <!-- <img src="crime-dashboard.png" alt="Crime Dashboard Screenshot"> -->
+                    </div>
                     <div class="card-body">
-                        <h3 class="card-title">Exploratory Data Analysis — Part 1</h3>
+                        <h3 class="card-title">Seattle Crime Dashboard</h3>
                         <p class="card-text">
-                            Jupyter Notebook showcasing data exploration,
-                            transformation, and foundational visualizations.
+                            Interactive dashboard analyzing Seattle crime data through API integration, 
+                            temporal filtering, and geospatial operations. Features dynamic widgets, 
+                            heat maps with autoplay timestamps, and point-in-polygon analysis across 
+                            police beats and precincts.
                         </p>
-                        <span class="meta">Python · Jupyter · Visualization</span>
-                        <div class="card-links">
-                            <a
-                                class="card-link"
-                                href="Lab_Part_1.html"
-                                target="_blank"
-                            >
-                                Open as full page
-                            </a>
+                        <span class="meta">Python · Folium · Jupyter · API · Geospatial Analysis</span>
+                        <div class="card-link-wrapper">
+                            <span class="card-link">View Project</span>
                         </div>
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe
-                            class="iframe-notebook"
-                            src="Lab_Part_1.html"
-                            title="Exploratory Data Analysis — Part 1"
-                        ></iframe>
-                    </div>
-                </article>
+                </a>
 
-                <!-- Notebook 2 -->
-                <article class="card">
-                    <div class="card-body">
-                        <h3 class="card-title">Exploratory Data Analysis — Part 2</h3>
-                        <p class="card-text">
-                            Follow-up notebook focused on refining visuals and summarizing
-                            patterns in the underlying dataset.
-                        </p>
-                        <span class="meta">Python · Jupyter · Data Wrangling</span>
-                        <div class="card-links">
-                            <a
-                                class="card-link"
-                                href="Lab_Part_2.html"
-                                target="_blank"
-                            >
-                                Open as full page
-                            </a>
-                        </div>
+                <!-- Notebook -->
+                <a class="card" href="Lab03.html" target="_blank">
+                    <div class="card-thumbnail">
+                        <!-- <img src="lab03.png" alt="Lab 3 Screenshot"> -->
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe
-                            class="iframe-notebook"
-                            src="Lab_Part_2.html"
-                            title="Exploratory Data Analysis — Part 2"
-                        ></iframe>
-                    </div>
-                </article>
-
-                <!-- Notebook 3 -->
-                <article class="card">
                     <div class="card-body">
                         <h3 class="card-title">Seismic Data Preparation</h3>
                         <p class="card-text">
@@ -369,27 +370,17 @@
                             structure earthquake data for visualization and mapping.
                         </p>
                         <span class="meta">Data Processing · Seismic Data</span>
-                        <div class="card-links">
-                            <a
-                                class="card-link"
-                                href="Lab03.html"
-                                target="_blank"
-                            >
-                                Open as full page
-                            </a>
+                        <div class="card-link-wrapper">
+                            <span class="card-link">View Project</span>
                         </div>
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe
-                            class="iframe-notebook"
-                            src="Lab03.html"
-                            title="Seismic Data Preparation"
-                        ></iframe>
-                    </div>
-                </article>
+                </a>
 
-                <!-- Notebook 4 -->
-                <article class="card">
+                <!-- Notebook -->
+                <a class="card" href="Lab03_Pt2.html" target="_blank">
+                    <div class="card-thumbnail">
+                        <!-- <img src="lab03-pt2.png" alt="Lab 3 Part 2 Screenshot"> -->
+                    </div>
                     <div class="card-body">
                         <h3 class="card-title">Seismic Visualization Workflow</h3>
                         <p class="card-text">
@@ -397,26 +388,17 @@
                             translated into visual outputs and map-ready layers.
                         </p>
                         <span class="meta">Visualization Pipeline · Earthquake Data</span>
-                        <div class="card-links">
-                            <a
-                                class="card-link"
-                                href="Lab03_Pt2.html"
-                                target="_blank"
-                            >
-                                Open as full page
-                            </a>
+                        <div class="card-link-wrapper">
+                            <span class="card-link">View Project</span>
                         </div>
                     </div>
-                    <div class="iframe-wrapper">
-                        <iframe
-                            class="iframe-notebook"
-                            src="Lab03_Pt2.html"
-                            title="Seismic Visualization Workflow"
-                        ></iframe>
-                    </div>
-                </article>
+                </a>
             </div>
         </section>
     </main>
+
+    <footer>
+        <p>© 2024 Omar Ahmad · Data Visualization & Spatial Analytics</p>
+    </footer>
 </body>
 </html>
