@@ -123,26 +123,6 @@
             overflow: hidden;
         }
 
-        /* Placeholder styling - remove this when you add real images */
-        .card-thumbnail::before {
-            content: '📊';
-            font-size: 4rem;
-            opacity: 0.3;
-        }
-
-        .card-thumbnail::after {
-            content: 'Add screenshot here';
-            position: absolute;
-            bottom: 12px;
-            right: 12px;
-            background: rgba(56, 189, 248, 0.2);
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 500;
-        }
-
         /* When you add images, use this style */
         .card-thumbnail img {
             width: 100%;
@@ -268,11 +248,10 @@
                 <a class="card" href="https://omar1210-a.github.io/WebMapping_Lab04/index.html" target="_blank">
                     <div class="card-thumbnail">
                         <!-- TO ADD YOUR SCREENSHOT: 
-                             1. Save your screenshot as 'covid-map.png' (or .jpg)
-                             2. Uncomment the line below and update the src
-                             3. Delete or comment out the ::before and ::after CSS above
+                             1. Save your screenshot in the 'Screenshots' folder
+                             2. Uncomment the line below and update the filename if needed
                         -->
-                        <!-- <img src="covid-map.png" alt="COVID-19 Map Screenshot"> -->
+                     <img src="Screenshots/covid-map.png" alt="COVID-19 Map Screenshot">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">COVID-19 Metrics by County — Washington State</h3>
@@ -291,7 +270,7 @@
                 <!-- US POP DENSITY MAP -->
                 <a class="card" href="https://omar1210-a.github.io/WebMapping_Lab04/pop_density.html" target="_blank">
                     <div class="card-thumbnail">
-                        <!-- <img src="pop-density-map.png" alt="Population Density Map Screenshot"> -->
+                     <img src="Screenshots/pop-density-map.png" alt="Population Density Map Screenshot"> 
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">Population Density — United States</h3>
@@ -310,7 +289,7 @@
                 <!-- EARTHQUAKE MAP -->
                 <a class="card" href="https://omar1210-a.github.io/Earthquake_Lab03/earthquake.html" target="_blank">
                     <div class="card-thumbnail">
-                        <!-- <img src="earthquake-map.png" alt="Earthquake Map Screenshot"> -->
+                         <img src="Screenshots/earthquake-map.png" alt="Earthquake Map Screenshot">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">Recent Earthquake Activity</h3>
@@ -319,7 +298,7 @@
                             enabling users to explore spatial patterns and magnitudes across a
                             region.
                         </p>
-                        <span class="meta">Geospatial Data · Event Mapping</span>
+                        <span class="meta">Geospatial Data · Event Mapping · Spatial Patterns</span>
                         <div class="card-link-wrapper">
                             <span class="card-link">View Project</span>
                         </div>
@@ -341,7 +320,7 @@
                 <!-- CRIME DASHBOARD -->
                 <a class="card" href="Lab 4.html" target="_blank">
                     <div class="card-thumbnail">
-                        <!-- <img src="crime-dashboard.png" alt="Crime Dashboard Screenshot"> -->
+                     <img src="Screenshots/crime-dashboard.png" alt="Crime Dashboard Screenshot">
                     </div>
                     <div class="card-body">
                         <h3 class="card-title">Seattle Crime Dashboard</h3>
@@ -358,36 +337,19 @@
                     </div>
                 </a>
 
-                <!-- Notebook -->
-                <a class="card" href="Lab03.html" target="_blank">
-                    <div class="card-thumbnail">
-                        <!-- <img src="lab03.png" alt="Lab 3 Screenshot"> -->
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title">Seismic Data Preparation</h3>
-                        <p class="card-text">
-                            Notebook export documenting the steps used to prepare, clean, and
-                            structure earthquake data for visualization and mapping.
-                        </p>
-                        <span class="meta">Data Processing · Seismic Data</span>
-                        <div class="card-link-wrapper">
-                            <span class="card-link">View Project</span>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Notebook -->
+                <!-- Notebook 4 -->
                 <a class="card" href="Lab03_Pt2.html" target="_blank">
                     <div class="card-thumbnail">
-                        <!-- <img src="lab03-pt2.png" alt="Lab 3 Part 2 Screenshot"> -->
+                         <img src="Screenshots/lab03-pt2.png" alt="Lab 3 Part 2 Screenshot"> 
                     </div>
                     <div class="card-body">
-                        <h3 class="card-title">Seismic Visualization Workflow</h3>
+                        <h3 class="card-title">Lidar Terrain Analysis — Colorado Flood Study</h3>
                         <p class="card-text">
-                            An HTML notebook highlighting how processed earthquake data is
-                            translated into visual outputs and map-ready layers.
+                            Jupyter notebook demonstrating raster data processing techniques using Python. 
+                            Covers opening and masking Digital Terrain Models (DTM), handling no-data values, 
+                            overlaying vector boundaries, and visualizing elevation data from NEON lidar datasets.
                         </p>
-                        <span class="meta">Visualization Pipeline · Earthquake Data</span>
+                        <span class="meta">Python · Rioxarray · Raster Analysis · Elevation Data </span>
                         <div class="card-link-wrapper">
                             <span class="card-link">View Project</span>
                         </div>
